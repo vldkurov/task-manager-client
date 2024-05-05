@@ -1,12 +1,12 @@
 import {useDispatch} from 'react-redux';
-import {logout} from "../../features/auth/authSlice";
+import {logoutUser} from "../../features/auth/authOperations";
 
 
-const LogoutButton = () => {
+const Logout = () => {
     const dispatch = useDispatch();
 
     const handleLogout = () => {
-        dispatch(logout()); // This will clear the token from local storage and reset the state
+        dispatch(logoutUser());
     };
 
     return (
@@ -14,4 +14,4 @@ const LogoutButton = () => {
     );
 };
 
-export default LogoutButton;
+export default Logout;

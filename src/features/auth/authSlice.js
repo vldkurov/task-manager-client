@@ -1,5 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {loginUser, signupUser} from "./authOperations";
+import {loginUser, logoutUser, signupUser} from "./authOperations";
 
 const initialState = {
     user: null,
@@ -13,11 +13,11 @@ const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
-        logout(state) {
-            localStorage.removeItem('token');
-            state.user = null;
-            state.token = null;
-        },
+        // logout(state) {
+        //     localStorage.removeItem('token');
+        //     state.user = null;
+        //     state.token = null;
+        // },
     },
     extraReducers: (builder) => {
         builder
@@ -46,9 +46,15 @@ const authSlice = createSlice({
                 state.status = 'failed';
                 // state.error = action.payload.error;
                 state.error = action.payload;
-            });
+            })
+            .addCase(logoutUser.fulfilled, (state) => {
+                state.user = null;
+                state.token = null;
+                state.status = 'idle';
+                state.error = null;
+            })
     }
 });
 
-export const {logout} = authSlice.actions;
+
 export default authSlice.reducer;

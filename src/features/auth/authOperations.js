@@ -29,3 +29,17 @@ export const signupUser = createAsyncThunk(
         }
     }
 );
+
+export const logoutUser = createAsyncThunk(
+    'auth/logout',
+    async (_, {rejectWithValue}) => {
+        try {
+            // Optionally notify the server about the logout
+            const response = await api.post('/auth/logout');
+            localStorage.removeItem('token'); // Ensure to remove token
+            return response.data;
+        } catch (error) {
+            return rejectWithValue(error.response.data);
+        }
+    }
+);

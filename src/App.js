@@ -1,16 +1,20 @@
-import './App.css';
-import Login from "./components/Login/Login";
-import LogoutButton from "./components/Logout/Logout";
-import Signup from "./components/Signup/Signup";
+// src/App.jsx
+import React from 'react';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import Header from './components/Header/Header';
+import Login from './components/Login/Login';
+import Signup from './components/Signup/Signup';
 
-function App() {
-    return (
-        <>
-            <Signup/>
-            <Login/>
-            <LogoutButton/>
-        </>
-    );
-}
+const App = () => (
+    <Router>
+        <Header/>
+        <Routes>
+            <Route path="/login" element={<Login/>}/>
+            <Route path="/signup" element={<Signup/>}/>
+            {/*<Route path="/logout" element={<Logout/>}/>*/}
+            {/* other routes can be added here */}
+        </Routes>
+    </Router>
+);
 
 export default App;
