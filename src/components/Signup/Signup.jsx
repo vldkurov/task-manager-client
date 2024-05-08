@@ -3,6 +3,7 @@ import {useDispatch} from 'react-redux';
 import {ErrorMessage, Field, Form, Formik} from 'formik';
 import * as Yup from 'yup';
 import {signupUser} from "../../features/auth/authOperations";
+import {useNavigate} from "react-router-dom";
 
 // Validation schema
 const SignupSchema = Yup.object().shape({
@@ -19,6 +20,7 @@ const SignupSchema = Yup.object().shape({
 
 const Signup = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate()
 
     return (
         <Formik
@@ -31,6 +33,7 @@ const Signup = () => {
                 }));
                 resetForm(); // Reset the form after submission
                 setSubmitting(false);
+                navigate('/')
             }}
         >
             {({isSubmitting}) => (

@@ -8,7 +8,6 @@ export const loginUser = createAsyncThunk(
         try {
             const response = await api.post('/auth/login', userData);
             // Assume your server responds with the token and user data
-            console.log(response.data);
             localStorage.setItem('token', response.data.token);
             return response.data;
         } catch (err) {
@@ -37,6 +36,26 @@ export const logoutUser = createAsyncThunk(
             // Optionally notify the server about the logout
             const response = await api.post('/auth/logout');
             localStorage.removeItem('token'); // Ensure to remove token
+            return response.data;
+        } catch (error) {
+            return rejectWithValue(error.response.data);
+        }
+    }
+);
+
+export const checkAuth = createAsyncThunk(
+    'auth/checkAuth',
+    async (_, {getState, rejectWithValue}) => {
+        const token = getState().auth.token;
+        if (!token) {
+            return rejectWithValue('No token found');
+        }
+
+        try {
+            const response = await api.get('/auth/validate', {
+                headers: {Authorization: token}
+            });
+            console.log('checkAuth response', response);
             return response.data;
         } catch (error) {
             return rejectWithValue(error.response.data);

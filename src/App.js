@@ -1,20 +1,18 @@
-// src/App.jsx
 import React from 'react';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import Header from './components/Header/Header';
-import Login from './components/Login/Login';
-import Signup from './components/Signup/Signup';
+import {BrowserRouter as Router} from 'react-router-dom';
+import AppRoutes from "./router";
+import AuthLayout from "./components/AuthLayout/AuthLayout";
 
-const App = () => (
-    <Router>
-        <Header/>
-        <Routes>
-            <Route path="/login" element={<Login/>}/>
-            <Route path="/signup" element={<Signup/>}/>
-            {/*<Route path="/logout" element={<Logout/>}/>*/}
-            {/* other routes can be added here */}
-        </Routes>
-    </Router>
-);
+const App = () => {
+
+    return (
+        <AuthLayout>
+            <Router>
+                <AppRoutes/>
+            </Router>
+        </AuthLayout>
+    )
+
+};
 
 export default App;
