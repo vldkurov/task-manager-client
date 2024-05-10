@@ -1,5 +1,5 @@
-import React from 'react';
-import {useDispatch} from 'react-redux';
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import {ErrorMessage, Field, Form, Formik} from 'formik';
 import * as Yup from 'yup';
 import {loginUser} from "../../features/auth/authOperations";
@@ -16,6 +16,13 @@ const LoginSchema = Yup.object().shape({
 const Login = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate()
+    const {isAuthenticated} = useSelector(state => state.auth);
+
+    useEffect(() => {
+        if (isAuthenticated) {
+            navigate('/tasks');
+        }
+    }, [isAuthenticated, navigate]);
 
     return (
         <Formik
@@ -28,7 +35,6 @@ const Login = () => {
                 }));
                 resetForm(); // Reset the form after submission
                 setSubmitting(false);
-                navigate('/')
             }}
         >
             {({isSubmitting}) => (

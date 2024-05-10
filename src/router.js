@@ -8,8 +8,9 @@ import Layout from "./components/Layout/Layout";
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const SignupPage = lazy(() => import('./pages/SignupPage/SignupPage'));
 const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
-// const ProductsPage = lazy(() => import('../pages/ProductsPage/ProductsPage'));
-// const ProductsByCategoryPage = lazy(() => import('../pages/ProductsByCategoryPage/ProductsByCategoryPage'))
+const TasksPage = lazy(() => import('./pages/TasksPage/TasksPage'));
+const TaskPage = lazy(() => import('./pages/TaskPage/TaskPage'));
+const CreateTaskPage = lazy(() => import('./pages/CreateTaskPage/CreateTaskPage'));
 // const ProductDetailsPage = lazy(() => import('../pages/ProductDetailsPage/ProductDetailsPage'));
 // const CartPage = lazy(() => import('../pages/CartPage/CartPage'))
 // const CheckoutPage = lazy(() => import('../pages/CheckoutPage/CheckoutPage'));
@@ -27,14 +28,10 @@ const AppRoutes = () => {
                     <Route path="/" element={<HomePage/>}/>
                     <Route path="/signup" element={<SignupPage/>}/>
                     <Route path="/login" element={<LoginPage/>}/>
-                    {/*<Route path="/products/all" element={<ProductsPage/>}/>*/}
-                    {/*<Route path="/products/all/:categoryId" element={<ProductsByCategoryPage/>}/>*/}
-                    {/*<Route path="/products/:productId" element={<ProductDetailsPage/>}/>*/}
                     {/*/!* Protected Routes *!/*/}
-                    {/*<Route path="/cart/:cartId" element={<RequireAuth><CartPage/></RequireAuth>}/>*/}
-                    {/*<Route path="/carts/:cartId/checkout" element={<RequireAuth><CheckoutPage/></RequireAuth>}/>*/}
-                    {/*<Route path="/orders" element={<RequireAuth><OrdersPage/></RequireAuth>}/>*/}
-                    {/*<Route path="/orders/:orderId" element={<RequireAuth><OrderDetailsPage/></RequireAuth>}/>*/}
+                    <Route path="/tasks" element={<TasksPage/>}/>
+                    <Route path="/tasks/:taskId" element={<TaskPage/>}/>
+                    <Route path="/tasks/new" element={<CreateTaskPage/>}/>
                     {/*/!* Fallback for unmatched routes *!/*/}
                     <Route path="*" element={<NotFoundPage/>}/>
                 </Routes>

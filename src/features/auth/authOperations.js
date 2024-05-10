@@ -55,7 +55,6 @@ export const checkAuth = createAsyncThunk(
             const response = await api.get('/auth/validate', {
                 headers: {Authorization: token}
             });
-            console.log('checkAuth response', response);
             return response.data;
         } catch (error) {
             return rejectWithValue(error.response.data);

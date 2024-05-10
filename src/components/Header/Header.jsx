@@ -1,20 +1,14 @@
 import React from 'react';
 import {Button, Typography} from '@mui/material';
 import {Link as RouterLink, useNavigate} from 'react-router-dom';
-import {useDispatch, useSelector} from 'react-redux';
-import {logoutUser} from '../../features/auth/authOperations'; // Ensure this is imported correctly
 import {StyledAppBar, StyledToolbar} from './Header.styled';
+import Logout from "../Logout/Logout";
+import {useSelector} from "react-redux";
 
 const Header = () => {
     const navigate = useNavigate();
-    const user = useSelector(state => state.auth.user);
-    const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
-    const dispatch = useDispatch();
+    const {isAuthenticated} = useSelector(state => state.auth);
 
-
-    const handleLogout = () => {
-        dispatch(logoutUser());
-    };
 
     return (
         <StyledAppBar position="static">
@@ -31,10 +25,11 @@ const Header = () => {
                     </>
                 ) : (
                     <>
-                        <Typography variant="h6" component="div" sx={{flexGrow: 1}}>
-                            Welcome, {user.username}
-                        </Typography>
-                        <Button color="inherit" onClick={handleLogout}>Logout</Button>
+                        {/*<Typography variant="h6" component="div" sx={{flexGrow: 1}}>*/}
+                        {/*    Welcome, {user.username}*/}
+                        {/*</Typography>*/}
+                        <Button color="inherit" component={RouterLink} to="/tasks">My Tasks</Button>
+                        <Logout/>
                     </>
                 )}
             </StyledToolbar>

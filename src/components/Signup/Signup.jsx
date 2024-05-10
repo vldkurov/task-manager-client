@@ -1,5 +1,5 @@
-import React from 'react';
-import {useDispatch} from 'react-redux';
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import {ErrorMessage, Field, Form, Formik} from 'formik';
 import * as Yup from 'yup';
 import {signupUser} from "../../features/auth/authOperations";
@@ -22,6 +22,14 @@ const Signup = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate()
 
+    const {isAuthenticated} = useSelector(state => state.auth);
+
+    useEffect(() => {
+        if (isAuthenticated) {
+            navigate('/tasks');
+        }
+    }, [isAuthenticated, navigate]);
+
     return (
         <Formik
             initialValues={{username: '', password: '', confirmPassword: ''}}
@@ -33,7 +41,6 @@ const Signup = () => {
                 }));
                 resetForm(); // Reset the form after submission
                 setSubmitting(false);
-                navigate('/')
             }}
         >
             {({isSubmitting}) => (
