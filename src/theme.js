@@ -9,13 +9,13 @@ const theme = createTheme({
             main: '#556677',
         },
         priorityHigh: {
-            main: '#ff1744',  // Example: bright red for high priority
+            main: '#ff1744',
         },
         priorityMedium: {
-            main: '#ffa726', // Example: amber for medium priority
+            main: '#ffa726',
         },
         priorityLow: {
-            main: '#4caf50', // Example: green for low priority
+            main: '#4caf50',
         },
     },
     typography: {

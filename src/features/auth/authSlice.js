@@ -21,9 +21,9 @@ const authSlice = createSlice({
             })
             .addCase(signupUser.fulfilled, (state, action) => {
                 state.status = 'succeeded';
-                state.user = action.payload.user; // Assuming payload contains user data
+                state.user = action.payload.user;
                 state.isAuthenticated = true;
-                state.token = action.payload.token; // Assuming payload contains token
+                state.token = action.payload.token;
                 state.error = null;
             })
             .addCase(signupUser.rejected, (state, action) => {
@@ -35,8 +35,8 @@ const authSlice = createSlice({
             })
             .addCase(loginUser.fulfilled, (state, action) => {
                 state.status = 'succeeded';
-                state.user = action.payload.user; // Store user data
-                state.token = action.payload.token; // Store token in state
+                state.user = action.payload.user;
+                state.token = action.payload.token;
                 state.isAuthenticated = true;
                 state.error = null;
             })

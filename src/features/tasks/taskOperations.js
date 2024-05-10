@@ -1,4 +1,3 @@
-// Async thunk for deleting a task
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import api from "../../api/api";
 

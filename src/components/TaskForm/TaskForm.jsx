@@ -43,7 +43,6 @@ const TaskForm = () => {
                 priority: task ? task.priority : 'medium',
                 status: task ? task.status : 'pending',
                 dueDate: task ? formatDate(task.dueDate) : formatDate()
-                // dueDate: task ? formattedDate : ''
             }}
             validationSchema={TaskValidationSchema}
             enableReinitialize={true}

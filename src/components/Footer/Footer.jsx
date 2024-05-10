@@ -18,11 +18,13 @@ const Footer = () => {
                 © 2024 Kuroff Web Solutions
             </Typography>
             <Box>
-                <IconButton color="inherit" component="a" href="https://linkedin.com" target="_blank"
+                <IconButton color="inherit" component="a" href="https://www.linkedin.com/in/volodymyr-kurov-1a5043253/"
+                            target="_blank"
                             aria-label="LinkedIn">
                     <LinkedInIcon/>
                 </IconButton>
-                <IconButton color="inherit" component="a" href="https://github.com" target="_blank" aria-label="GitHub">
+                <IconButton color="inherit" component="a" href="https://github.com/vldkurov" target="_blank"
+                            aria-label="GitHub">
                     <GitHubIcon/>
                 </IconButton>
                 <IconButton color="inherit" component="a" href="https://twitter.com" target="_blank"

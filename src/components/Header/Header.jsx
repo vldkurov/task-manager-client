@@ -25,9 +25,6 @@ const Header = () => {
                     </>
                 ) : (
                     <>
-                        {/*<Typography variant="h6" component="div" sx={{flexGrow: 1}}>*/}
-                        {/*    Welcome, {user.username}*/}
-                        {/*</Typography>*/}
                         <Button color="inherit" component={RouterLink} to="/tasks">My Tasks</Button>
                         <Logout/>
                     </>

@@ -1,4 +1,3 @@
-// Import styled from either @emotion/styled or styled-components
 import styled from '@emotion/styled';
 import {Box, Button} from "@mui/material";
 

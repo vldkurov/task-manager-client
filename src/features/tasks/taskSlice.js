@@ -13,9 +13,7 @@ const initialState = {
 const taskSlice = createSlice({
     name: 'tasks',
     initialState,
-    reducers: {
-        // You can also add reducers for non-async actions here
-    },
+    reducers: {},
     extraReducers: (builder) => {
         builder
             .addCase(fetchTasks.pending, (state) => {
@@ -63,7 +61,7 @@ const taskSlice = createSlice({
                 state.error = action.payload;
             })
             .addCase(logoutUser.fulfilled, () => initialState)
-        // Add other cases for different thunks as needed
+
     }
 });
 
