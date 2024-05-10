@@ -53,6 +53,7 @@ const TaskForm = () => {
                     setSubmitting(false);
                     navigate('/tasks');
                 });
+
             }}
         >
             {formik => (
